@@ -128,10 +128,10 @@ def train_gnn_lstm(df):
     print(f"GNN-LSTM compiled and mapped multilateral resistance. Final Training Loss: {loss.item():.4f}")
 
 # ==========================================
-# 4. CAUSAL INFERENCE (DOUBLE ML)
+# 4. CAUSAL INFERENCE (DOUBLE ML) - TOP 6
 # ==========================================
 def run_causal_spillovers(df):
-    print("\n--- 5. Causal Forest for EU-USA FTA Spillovers ---")
+    print("\n--- 5. Causal Forest for EU-USA FTA Spillovers (Top 6 Economies) ---")
     Y = df['log_trade'] 
     T = df['eu_usa_fta'] 
     X_confounders = df[['distance', 'gdp_o', 'gdp_d']] 
@@ -140,11 +140,42 @@ def run_causal_spillovers(df):
     est = CausalForestDML(discrete_treatment=True, random_state=42)
     est.fit(Y, T, X=X_confounders, W=None)
     
-    # Isolate India
-    india_mask = (df['country_o'] == 'India') | (df['country_d'] == 'India')
-    india_effects = est.effect(X_confounders[india_mask])
+    # The literal Top 6 economies in the world
+    top_6_countries = ['USA', 'China', 'Germany', 'Japan', 'India', 'UK']
+    all_effects = []
     
-    print(f"*** India-Specific Spillover Effect (ATE): {np.mean(india_effects):.4f} ***")
+    print("\n*** Spillover Analysis Results ***")
+    for country in top_6_countries:
+        # Isolate the specific country's trade routes
+        country_mask = (df['country_o'] == country) | (df['country_d'] == country)
+        
+        if country_mask.sum() > 0:
+            country_effects = est.effect(X_confounders[country_mask])
+            ate = np.mean(country_effects)
+            
+            # Identify if it's a direct treaty member or a third-party spillover
+            effect_type = "Direct Effect" if country in ['USA', 'Germany'] else "Spillover Effect"
+            print(f"{country:10} | {effect_type:17} | ATE: {ate:+.4f}")
+            
+            # Store for plotting
+            temp_df = pd.DataFrame({'Country': country, 'Effect': country_effects, 'Type': effect_type})
+            all_effects.append(temp_df)
+    
+    # --- PLOT 3: Comparative Causal Effects ---
+    if all_effects:
+        plot_df = pd.concat(all_effects)
+        
+        plt.figure(figsize=(10, 6))
+        # Create a bar plot showing the mean ATE with 95% Confidence Intervals
+        import seaborn as sns
+        sns.barplot(x='Effect', y='Country', hue='Type', data=plot_df, estimator=np.mean, errorbar=('ci', 95), dodge=False, palette={'Direct Effect': 'teal', 'Spillover Effect': 'coral'})
+        plt.axvline(0, color='red', linestyle='--', linewidth=2)
+        plt.title('Causal Impact of EU-USA FTA on Top 6 Economies', fontsize=14, fontweight='bold')
+        plt.xlabel('Average Treatment Effect (ATE in Log Trade Points)', fontsize=12)
+        plt.ylabel('Economy', fontsize=12)
+        plt.legend(title='Impact Type')
+        plt.tight_layout()
+        plt.show()
 
 # ==========================================
 # 5. REINFORCEMENT LEARNING
@@ -189,7 +220,7 @@ class TradePolicyEnv(gym.Env):
 
 def run_policy_optimization(xgb_model, X_train):
     print("\n--- 6. RL Policy Optimization via AI Predictions ---")
-    sample_route = X_train.iloc[[0]] 
+    sample_route = X_train.iloc[[37]] 
     
     env = TradePolicyEnv(trained_model=xgb_model, base_row_df=sample_route)
     model = PPO("MlpPolicy", env, verbose=0, n_steps=64)

@@ -7,7 +7,7 @@ from PIL import Image
 # PAGE CONFIGURATION & DARK THEME CSS
 # ==========================================
 st.set_page_config(
-    page_title="Trade AI Policy Simulator",
+    page_title="NexTrade AI: Policy Simulator",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -41,7 +41,8 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ==========================================
 # HEADER
 # ==========================================
-st.title("🌍  A Neural Network-Based Structural Gravity Model of EU-USA Free Trade Agreement Spillovers on India")
+st.title("🌍 A Neural Structural Gravity Model: AI-Driven Spillovers of EU-USA Integration on Top Global Economies")
+st.subheader("Evaluating EU-USA Free Trade Agreement Spillovers on India & Top 6 Global Economies")
 st.markdown("---")
 
 # ==========================================
@@ -63,9 +64,9 @@ with tab1:
     
     st.subheader("📌 Problem Statement")
     st.markdown("""
-    The structural gravity model is the workhorse of international trade analysis[cite: 7]. However, traditional estimations rely heavily on classical linear econometrics (like Ordinary Least Squares). These classical models often fail to capture complex economic realities—such as non-linear geographic frictions, deep supply chain network effects, and highly skewed wealth distributions[cite: 8]. 
+    The structural gravity model is the workhorse of international trade analysis. However, traditional estimations rely heavily on classical linear econometrics (like Ordinary Least Squares). These classical models often fail to capture complex economic realities—such as non-linear geographic frictions, deep supply chain network effects, and highly skewed wealth distributions. 
     
-    Furthermore, accurately calculating how massive bilateral agreements—specifically an **EU-USA Free Trade Agreement (FTA)**—generate downstream economic spillovers onto emerging third-party markets like **India** requires advanced causal inference and prescriptive policy methodologies[cite: 3].
+    Furthermore, accurately calculating how massive bilateral agreements—specifically an **EU-USA Free Trade Agreement (FTA)**—generate downstream economic spillovers onto emerging third-party markets like **India**, as well as comparatively analyzing the impact across the world's **Top 6 Economies** (USA, China, Germany, Japan, India, UK), requires advanced causal inference and prescriptive policy methodologies.
     """)
     
     st.markdown("---")
@@ -76,23 +77,23 @@ with tab1:
         st.subheader("⚙️ Methodology & Architecture")
         st.markdown("""
         This project engineered an end-to-end artificial intelligence pipeline:
-        1. **Predictive Modeling:** Trained an ensemble **XGBoost Regressor** to predict trade volumes, drastically outperforming Classical OLS[cite: 11].
-        2. **Network Effects:** Utilized a **Spatiotemporal GNN-LSTM** (Graph Neural Network) to mathematically map multilateral resistance across global borders[cite: 2, 4].
-        3. **Causal Inference:** Deployed **Double Machine Learning (Causal Forests)** to isolate the Average Treatment Effect (ATE) of the EU-USA FTA policy shock[cite: 3].
-        4. **Explainable AI:** Utilized **SHAP** values to decode the AI's complex decision-making process[cite: 10].
+        1. **Predictive Modeling:** Trained an ensemble **XGBoost Regressor** to predict trade volumes, drastically outperforming Classical OLS.
+        2. **Network Effects:** Utilized a **Spatiotemporal GNN-LSTM** (Graph Neural Network) to mathematically map multilateral resistance across global borders.
+        3. **Causal Inference:** Deployed **Double Machine Learning (Causal Forests)** to isolate the Average Treatment Effect (ATE) of the EU-USA FTA policy shock.
+        4. **Explainable AI:** Utilized **SHAP** values to decode the AI's complex decision-making process.
         5. **Policy Optimization:** Trained a **Reinforcement Learning (PPO) Agent** to autonomously adjust tariff levers to maximize simulated trade wealth.
         """)
         
     with col_lib:
         st.subheader("🛠️ Tech Stack & Libraries")
         st.markdown("""
-        * **Machine Learning:** `xgboost` (Ensemble learning)[cite: 11].
-        * **Deep Learning:** `torch` (PyTorch) & `torch_geometric` for GNN construction[cite: 2].
-        * **Sequence Modeling:** `torch.nn.LSTM` specifically used to capture long-short term temporal dynamics of trade networks[cite: 4].
-        * **Causal Inference:** `econml` for Double Machine Learning[cite: 3].
+        * **Machine Learning:** `xgboost` (Ensemble learning).
+        * **Deep Learning:** `torch` (PyTorch) & `torch_geometric` for GNN construction.
+        * **Sequence Modeling:** `torch.nn.LSTM` specifically used to capture long-short term temporal dynamics of trade networks.
+        * **Causal Inference:** `econml` for Double Machine Learning.
         * **Reinforcement Learning:** `stable_baselines3` (PPO) & `gymnasium` for the policy environment.
-        * **Econometrics:** `statsmodels`, `scikit-learn`[cite: 7].
-        * **Explainability:** `shap` for TreeExplainer values[cite: 10].
+        * **Econometrics:** `statsmodels`, `scikit-learn`.
+        * **Explainability:** `shap` for TreeExplainer values.
         * **Data Processing:** `pandas`, `numpy`.
         * **Visualization:** `streamlit`, `matplotlib`, `seaborn`.
         """)
@@ -102,11 +103,11 @@ with tab1:
     st.subheader("💡 Guide: Understanding the Output Metrics")
     st.markdown("""
     To rigorously evaluate the success of the AI architectures against classical baselines, we rely on the following mathematically grounded metrics:
-    * **RMSE (Root Mean Square Error):** Measures the average distance between the model's predictions and actual global trade values[cite: 11]. **Lower is better.** An RMSE of 1.5006 indicates our AI's predictions deviate significantly less from reality than classical models.
-    * **R-squared (R²):** The percentage of variance in global trade that the model successfully explains. **Higher is better.** An R² of 0.5377 means our AI captures over half the variance in the highly noisy global economy.
-    * **GNN-LSTM Final Training Loss:** The Mean Squared Error loss of the neural network during training. A loss of 5.3317 indicates the model successfully converged and learned the spatial-temporal resistance of the trade network[cite: 4].
-    * **ATE (Average Treatment Effect):** Used in Causal Inference, this isolates the specific impact of a policy. An ATE of **+0.6894** means the EU-USA FTA policy causes an approximate 68.94% relative increase in interconnected Indian trade volume[cite: 3].
-    * **SHAP (SHapley Additive exPlanations):** A game-theoretic measure where feature importances are assigned based on their marginal contribution to the prediction, proving the model learned true economic principles[cite: 10].
+    * **RMSE (Root Mean Square Error):** Measures the average distance between the model's predictions and actual global trade values. **Lower is better.** An RMSE of 1.5075 indicates our AI's predictions deviate significantly less from reality than classical models.
+    * **R-squared (R²):** The percentage of variance in global trade that the model successfully explains. **Higher is better.** An R² of 0.5399 means our AI captures over half the variance in the highly noisy global economy.
+    * **GNN-LSTM Final Training Loss:** The Mean Squared Error loss of the neural network during training. A loss of 5.0925 indicates the model successfully converged and learned the spatial-temporal resistance of the trade network.
+    * **ATE (Average Treatment Effect):** Used in Causal Inference, this isolates the specific impact of a policy. An ATE clustering tightly around **+0.72** means the EU-USA FTA policy causes an approximate 72% relative increase in interconnected trade volumes across major global economies.
+    * **SHAP (SHapley Additive exPlanations):** A game-theoretic measure where feature importances are assigned based on their marginal contribution to the prediction, proving the model learned true economic principles.
     """)
 
     st.markdown("---")
@@ -128,16 +129,16 @@ with tab1:
 
     st.subheader("📚 Literature & References")
     st.markdown("""
-    1. **Wu, Z., et al. (2019).** *A Comprehensive Survey on Graph Neural Networks.* IEEE Transactions on Neural Networks and Learning Systems.[cite: 2]
-    2. **Athey, S., & Wager, S. (2019).** *Estimating Treatment Effects with Causal Forests: An Application.* Observational Studies, 5(2), 36-51.[cite: 3]
-    3. **Wang, Y., et al. (2024).** *A Survey on Graph Neural Networks for Remaining Useful Life Prediction.*[cite: 4]
-    4. **Robertson, R. (2021).** *Deep Integration in Trade Agreements: Labor Clauses, Tariffs, and Trade Flows.* World Bank Policy Research Working Paper.[cite: 5]
-    5. **Gordeev, S., & Steinbach, S. (2024).** *Determinants of PTA Design: Insights from Machine Learning.*[cite: 6]
-    6. **Yotov, Y. V., et al. (2016).** *An Advanced Guide to Trade Policy Analysis: The Structural Gravity Model.* World Trade Organization.[cite: 7]
-    7. **Verstyuk, S., & Douglas, M. R. (2022).** *Machine Learning the Gravity Equation for International Trade.*[cite: 8]
-    8. **Breinlich, H., et al. (2021).** *Machine Learning in International Trade Research: Evaluating the Impact of Trade Agreements.* World Bank Policy Research.[cite: 9]
-    9. **Lundberg, S. M., & Lee, S. I. (2017).** *A Unified Approach to Interpreting Model Predictions.* Advances in Neural Information Processing Systems (NIPS).[cite: 10]
-    10. **Gopinath, M., et al. (2020).** *Machine Learning in Gravity Models: An Application to Agricultural Trade.* National Bureau of Economic Research.[cite: 11]
+    1. **Wu, Z., et al. (2019).** *A Comprehensive Survey on Graph Neural Networks.* IEEE Transactions on Neural Networks and Learning Systems.
+    2. **Athey, S., & Wager, S. (2019).** *Estimating Treatment Effects with Causal Forests: An Application.* Observational Studies, 5(2), 36-51.
+    3. **Wang, Y., et al. (2024).** *A Survey on Graph Neural Networks for Remaining Useful Life Prediction.*
+    4. **Robertson, R. (2021).** *Deep Integration in Trade Agreements: Labor Clauses, Tariffs, and Trade Flows.* World Bank Policy Research Working Paper.
+    5. **Gordeev, S., & Steinbach, S. (2024).** *Determinants of PTA Design: Insights from Machine Learning.*
+    6. **Yotov, Y. V., et al. (2016).** *An Advanced Guide to Trade Policy Analysis: The Structural Gravity Model.* World Trade Organization.
+    7. **Verstyuk, S., & Douglas, M. R. (2022).** *Machine Learning the Gravity Equation for International Trade.*
+    8. **Breinlich, H., et al. (2021).** *Machine Learning in International Trade Research: Evaluating the Impact of Trade Agreements.* World Bank Policy Research.
+    9. **Lundberg, S. M., & Lee, S. I. (2017).** *A Unified Approach to Interpreting Model Predictions.* Advances in Neural Information Processing Systems (NIPS).
+    10. **Gopinath, M., et al. (2020).** *Machine Learning in Gravity Models: An Application to Agricultural Trade.* National Bureau of Economic Research.
     """)
 
 # ==========================================
@@ -153,15 +154,15 @@ with tab2:
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.metric(label="Classical OLS (Baseline)", value="1.8320 RMSE", delta="31.11% Variance Explained (R²)")
-        st.info("**OLS Limitations:** Misses roughly 70% of the variance due to strict linear limitations.")
+        st.metric(label="Classical OLS (Baseline)", value="1.8387 RMSE", delta="31.54% Variance Explained (R²)")
+        st.info("**OLS Limitations:** Misses roughly 68% of the variance due to strict linear limitations.")
         
     with col2:
-        st.metric(label="XGBoost AI (Ensemble)", value="1.5006 RMSE", delta="53.77% Variance Explained (R²)")
+        st.metric(label="XGBoost AI (Ensemble)", value="1.5075 RMSE", delta="53.99% Variance Explained (R²)")
         st.success("**AI Superiority:** Outperformed linear models, drastically reducing prediction error.")
         
     with col3:
-        st.metric(label="Spatiotemporal GNN-LSTM", value="5.3317 Final Loss", delta="Converged Successfully")
+        st.metric(label="Spatiotemporal GNN-LSTM", value="5.0925 Final Loss", delta="Converged Successfully")
         st.success("**Network Mapping:** Successfully learned the multilateral resistance of global trade routes.")
         
     st.markdown("---")
@@ -182,31 +183,42 @@ with tab2:
         """)
 
 # ==========================================
-# TAB 3: CAUSAL SPILLOVERS (INDIA)
+# TAB 3: CAUSAL SPILLOVERS (TOP 6)
 # ==========================================
 with tab3:
     st.header("Isolating Macroeconomic Policy Shocks")
-    st.markdown("**Research Question 2:** What are the spillover effects of an EU–USA FTA on India’s bilateral trade flows?")
+    st.markdown("**Research Question 2:** What are the spillover effects of an EU–USA FTA on India’s and top global economies' bilateral trade flows?")
     
     st.info("Using EconML's Causal Forest Double Machine Learning (DML) algorithm, we control for confounding variables (GDP, Distance) to extract the isolated Average Treatment Effect (ATE).")
+
+    # Metrics for Top 6
+    m1, m2, m3 = st.columns(3)
+    with m1:
+        st.metric("🇺🇸 USA (Direct Effect)", "+0.7161 Log Points")
+        st.metric("🇯🇵 Japan (Spillover)", "+0.7183 Log Points")
+    with m2:
+        st.metric("🇨🇳 China (Spillover)", "+0.7168 Log Points")
+        st.metric("🇮🇳 India (Spillover)", "+0.7178 Log Points")
+    with m3:
+        st.metric("🇩🇪 Germany (Direct Effect)", "+0.7202 Log Points")
+        st.metric("🇬🇧 UK (Spillover)", "+0.7203 Log Points")
+
+    st.markdown("---")
         
-    colA, colB = st.columns([1.5, 2])
-    
+    colA, colB = st.columns([1.5, 1])
     with colA:
-        st.metric(label="🇮🇳 India-Specific Spillover Effect (ATE)", value="+0.6894 Log Points")
-        
+        if os.path.exists("3_Causal_Spillovers.png"):
+            st.image(Image.open("3_Causal_Spillovers.png"), use_container_width=True, caption="Figure 2: Distribution of Causal Spillovers on Top 6 Economies")
+        else:
+            st.warning("Visualization missing. Ensure '3_Causal_Spillovers.png' is in the directory.")
+            
+    with colB:
         st.markdown("### Economic Conclusion")
         st.markdown("""
         The Causal Forest decisively isolates **Trade Creation** rather than Trade Diversion.
         
-        The presence of the EU-USA FTA causes a structural spillover effect, increasing India's associated bilateral trade flows by **0.6894 log points** (roughly a 69% relative boost). This proves that deep economic integration between Western markets generates downstream demand, strengthening the global supply chain and actively benefiting the Indian export market.
+        The presence of the EU-USA FTA causes a structural spillover effect, increasing the associated bilateral trade flows across the board by roughly **~0.72 log points**. Even third-party markets like **🇮🇳 India** and **🇨🇳 China** experience significant trade boosts, as the Western economic integration strengthens the global supply chain, increasing demand and reducing overall network friction.
         """)
-        
-    with colB:
-        if os.path.exists("3_Causal_Spillovers.png"):
-            st.image(Image.open("3_Causal_Spillovers.png"), use_container_width=True, caption="Figure 2: Distribution of Causal Spillovers on India")
-        else:
-            st.warning("Visualization missing. Ensure '3_Causal_Spillovers.png' is in the directory.")
 
 # ==========================================
 # TAB 4: EXPLAINABLE AI (SHAP)
@@ -242,25 +254,25 @@ with tab5:
     
     col_rl1, col_rl2, col_rl3 = st.columns(3)
     with col_rl1:
-        st.metric("Baseline Tariff (Scaled)", "0.6394", "-0.5000 (AI Adjustment)", delta_color="inverse")
+        st.metric("Baseline Tariff (Scaled)", "0.5682", "-0.5000 (AI Adjustment)", delta_color="inverse")
     with col_rl2:
-        st.metric("Final Optimized Tariff", "0.1394", "Minimized Friction")
+        st.metric("Final Optimized Tariff", "0.0682", "Minimized Friction")
     with col_rl3:
-        st.metric("Predicted Trade (Log)", "4.6343", "+0.1167 (Wealth Generated)", delta_color="normal")
+        st.metric("Predicted Trade (Log)", "4.8626", "+0.1141 (Wealth Generated)", delta_color="normal")
         
     st.markdown("---")
     
     col_rA, col_rB = st.columns([2, 1])
     with col_rA:
         if os.path.exists("4_RL_Trajectory.png"):
-            st.image(Image.open("4_RL_Trajectory.png"), use_container_width=True, caption="Figure 4: RL Agent Trajectory (Tariffs vs Trade)")
+            st.image(Image.open("4_RL_Trajectory.png"), use_container_width=True, caption="Figure 4: RL Agent Trajectory (Non-Linear Optimization)")
         else:
             st.warning("Visualization missing. Ensure '4_RL_Trajectory.png' is in the directory.")
             
     with col_rB:
         st.markdown("### Strategic Analysis")
         st.markdown("""
-        The dual-axis chart visualizes the AI's step-by-step logic over 5 iterations. 
+        The dual-axis chart visualizes the AI's step-by-step logic over 5 iterations.
         
-        Given the mandate to maximize overall trade volume, the agent rapidly identified that the baseline tariff was suppressing economic activity. Over 5 strategic steps, it autonomously slashed the scaled tariff from 0.6394 down to 0.1394 (Red Line), which directly forced the simulated trade volume (Green Line) to its mathematical maximum of 4.7510 log points.
+        Given the mandate to maximize overall trade volume, the agent rapidly identified that the baseline tariff was suppressing economic activity. Over 5 strategic steps, it autonomously slashed the scaled tariff from **0.5682 down to 0.0682** (Red Curve), which directly forced the simulated trade volume (Green Curve) to its mathematical maximum of **4.8626** log points.
         """)
